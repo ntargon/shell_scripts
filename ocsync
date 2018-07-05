@@ -1,0 +1,23 @@
+#!/bin/bash
+#sync local directories to owncloud
+
+echo 'sync started'
+
+url=https://meteor.nucl.kyushu-u.ac.jp/owncloud/remote.php/webdav/
+local=(
+   $HOME'/workspaces/himac_analysis/file_tokunaga'
+   $HOME'/workspaces/tex/ryoushisen'
+   )
+
+remote=(
+   'backup/HIMAC'
+   'backup/ryoushisen'
+   )
+
+for ((i=0; i< ${#local[@]}; i++)) {
+   owncloudcmd -s -n ${local[i]} ${url}${remote[i]}
+   echo "${local[i]} to ${remote[i]}"
+}
+   
+echo 'sync completed'
+
