@@ -6,6 +6,6 @@ if [ $# = 1 ]; then
 elif [ $# = 2 ]; then
    tar -zcvf $1 $2
 else
-   echo 'too many arguments'
+   echo 'invalid arguments'
 fi
 
